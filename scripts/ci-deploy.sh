@@ -14,7 +14,7 @@ envsubst <./kube/do-sample-deployment.yml >./kube/do-sample-deployment.yml.out
 mv ./kube/do-sample-deployment.yml.out ./kube/do-sample-deployment.yml
 
 $code = `echo -n "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 --decode` 
-echo "$code" > cert,crt
+echo "$code" > cert.crt
 ./kubectl \
   --kubeconfig=/dev/null \
   --server=$KUBERNETES_SERVER \

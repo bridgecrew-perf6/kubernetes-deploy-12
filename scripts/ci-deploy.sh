@@ -13,7 +13,7 @@ export COMMIT_SHA1=$COMMIT_SHA1
 envsubst <./kube/do-sample-deployment.yml >./kube/do-sample-deployment.yml.out
 mv ./kube/do-sample-deployment.yml.out ./kube/do-sample-deployment.yml
 
-echo "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 --decode > cert.crt
+cat "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 -d > cert.crt
 
 ./kubectl \
   --kubeconfig=/dev/null \
